@@ -1,0 +1,18 @@
+.projects {
+    text-align: center;
+    padding: 40px;
+}
+
+.project-card {
+    width: 70%;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.project-card img {
+    width: 450px;
+    height: auto;
+    border-radius: 10px;
+}

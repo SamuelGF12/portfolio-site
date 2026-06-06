@@ -1,0 +1,35 @@
+.home {
+    text-align: center;
+    padding: 50px;
+}
+
+.home h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.home h2 {
+    color: #00bfff;
+    margin-bottom: 20px;
+}
+
+.home p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.aboutButton {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 20px;
+    background-color: #00bfff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.aboutButton:hover {
+    background-color: #0099cc;
+}

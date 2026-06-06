@@ -1,0 +1,12 @@
+.references {
+    text-align: center;
+    padding: 40px;
+}
+
+.reference-card {
+    width: 70%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
