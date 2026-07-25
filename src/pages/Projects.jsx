@@ -1,9 +1,22 @@
+import { useEffect, useState } from "react";
+
 import project1 from "../assets/project1.jpg";
 import project2 from "../assets/project2.jpg";
 import project3 from "../assets/project3.jpg";
 import "./Project.css";
 
 function Projects() {
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/api/projects")
+        .then((response) => response.json())
+        .then((data) => {
+            setProjects(data.data);
+        })
+        .catch((error) => {
+            console.error("Error fetching projects:", error);
+        });
+  }, []);
   return (
     <div className="projects">
 

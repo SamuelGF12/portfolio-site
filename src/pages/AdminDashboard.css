@@ -1,0 +1,30 @@
+.admin-dashboard {
+    max-width: 700px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.admin-dashboard h2 {
+    margin-bottom: 30px;
+}
+
+.admin-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.admin-links a {
+    display: block;
+    text-decoration: none;
+    background-color: #00AEEF;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.admin-links a:hover {
+    background-color: #008CC7;
+}

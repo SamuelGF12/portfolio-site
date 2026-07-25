@@ -1,0 +1,135 @@
+.manage-services {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.manage-services h1 {
+    margin-bottom: 30px;
+}
+
+.add-button {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.add-button:hover {
+    background-color: #0b5ed7;
+}
+
+.form-container {
+    width: 600px;
+    margin: 0 auto 40px;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-container textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.save-button {
+    background-color: #198754;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: #157347;
+}
+
+.cancel-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background-color: #5c636a;
+}
+
+.service-count {
+    margin: 30px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.projects-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.projects-table th,
+.projects-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+
+.projects-table th {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.edit-button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: darkorange;
+}
+
+.delete-button {
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}

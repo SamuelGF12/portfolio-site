@@ -9,6 +9,11 @@ import Services from './pages/Services'
 import References from './pages/References'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import AdminDashboard from './pages/AdminDashboard'
+import ManageProjects from "./pages/ManageProjects";
+import ManageServices from "./pages/ManageServices";
+import ManageReferences from "./pages/ManageReferences";
+import ManageUsers from "./pages/ManageUsers";
 
 function App() {
   return (
@@ -23,6 +28,11 @@ function App() {
         <Route exact path="/services" element={<Services />} />
         <Route exact path="/references" element={<References />} />
         <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/admin" element={<AdminDashboard />} />
+        <Route exact path="/admin/projects" element={<ManageProjects />} />
+        <Route exact path="/admin/services" element={<ManageServices />} />
+        <Route exact path="/admin/references" element={<ManageReferences />} />
+        <Route exact path="/admin/users" element={<ManageUsers />} />
         <Route exact path="*" element={<NotFound />} />
       </Routes>
 
