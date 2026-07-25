@@ -20,7 +20,7 @@ function ManageReferences() {
 
     const fetchReferences = () => {
 
-        fetch("http://localhost:3000/api/references")
+        fetch("https://portfolio-backend-176m.onrender.com/api/references")
             .then((response) => response.json())
             .then((data) => {
                 setReferences(data.data);
@@ -91,7 +91,7 @@ function ManageReferences() {
             if (isEditing) {
 
                 response = await fetch(
-                    `http://localhost:3000/api/references/${currentReferenceId}`,
+                    `https://portfolio-backend-176m.onrender.com/api/references/${currentReferenceId}`,
                     {
                         method: "PUT",
                         headers: {
@@ -104,7 +104,7 @@ function ManageReferences() {
             } else {
 
                 response = await fetch(
-                    "http://localhost:3000/api/references",
+                    "https://portfolio-backend-176m.onrender.com/api/references",
                     {
                         method: "POST",
                         headers: {
@@ -161,7 +161,7 @@ function ManageReferences() {
         try {
 
             const response = await fetch(
-                `http://localhost:3000/api/references/${id}`,
+                `https://portfolio-backend-176m.onrender.com/api/references/${id}`,
                 {
                     method: "DELETE"
                 }

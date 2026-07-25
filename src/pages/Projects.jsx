@@ -8,7 +8,7 @@ import "./Project.css";
 function Projects() {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/api/projects")
+    fetch("https://portfolio-backend-176m.onrender.com/api/projects")
         .then((response) => response.json())
         .then((data) => {
             setProjects(data.data);

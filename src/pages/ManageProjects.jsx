@@ -18,7 +18,7 @@ function ManageProjects() {
   });
 
   const fetchProjects = () => {
-    fetch("http://localhost:3000/api/projects")
+    fetch("https://portfolio-backend-176m.onrender.com/api/projects")
       .then((response) => response.json())
       .then((data) => {
         setProjects(data.data);
@@ -77,7 +77,7 @@ function ManageProjects() {
 
       if (isEditing) {
         response = await fetch(
-          `http://localhost:3000/api/projects/${currentProjectId}`,
+          `https://portfolio-backend-176m.onrender.com/api/projects/${currentProjectId}`,
           {
             method: "PUT",
             headers: {
@@ -87,7 +87,7 @@ function ManageProjects() {
           },
         );
       } else {
-        response = await fetch("http://localhost:3000/api/projects", {
+        response = await fetch("https://portfolio-backend-176m.onrender.com/api/projects", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -128,7 +128,7 @@ function ManageProjects() {
     if (!confirmDelete) return;
 
     try {
-      const response = await fetch(`http://localhost:3000/api/projects/${id}`, {
+      const response = await fetch(`https://portfolio-backend-176m.onrender.com/api/projects/${id}`, {
         method: "DELETE",
       });
 

@@ -20,7 +20,7 @@ function ManageUsers() {
 
     const fetchUsers = () => {
 
-        fetch("http://localhost:3000/api/users")
+        fetch("https://portfolio-backend-176m.onrender.com/api/users")
             .then((response) => response.json())
             .then((data) => {
                 setUsers(data.data);
@@ -91,7 +91,7 @@ function ManageUsers() {
             if (isEditing) {
 
                 response = await fetch(
-                    `http://localhost:3000/api/users/${currentUserId}`,
+                    `https://portfolio-backend-176m.onrender.com/api/users/${currentUserId}`,
                     {
                         method: "PUT",
                         headers: {
@@ -104,7 +104,7 @@ function ManageUsers() {
             } else {
 
                 response = await fetch(
-                    "http://localhost:3000/api/users",
+                    "https://portfolio-backend-176m.onrender.com/api/users",
                     {
                         method: "POST",
                         headers: {
@@ -161,7 +161,7 @@ function ManageUsers() {
         try {
 
             const response = await fetch(
-                `http://localhost:3000/api/users/${id}`,
+                `https://portfolio-backend-176m.onrender.com/api/users/${id}`,
                 {
                     method: "DELETE"
                 }

@@ -19,7 +19,7 @@ function ManageServices() {
 
     const fetchServices = () => {
 
-        fetch("http://localhost:3000/api/services")
+        fetch("https://portfolio-backend-176m.onrender.com/api/services")
             .then((response) => response.json())
             .then((data) => {
                 setServices(data.data);
@@ -86,7 +86,7 @@ function ManageServices() {
             if (isEditing) {
 
                 response = await fetch(
-                    `http://localhost:3000/api/services/${currentServiceId}`,
+                    `https://portfolio-backend-176m.onrender.com/api/services/${currentServiceId}`,
                     {
                         method: "PUT",
                         headers: {
@@ -99,7 +99,7 @@ function ManageServices() {
             } else {
 
                 response = await fetch(
-                    "http://localhost:3000/api/services",
+                    "https://portfolio-backend-176m.onrender.com/api/services",
                     {
                         method: "POST",
                         headers: {
@@ -156,7 +156,7 @@ function ManageServices() {
         try {
 
             const response = await fetch(
-                `http://localhost:3000/api/services/${id}`,
+                `https://portfolio-backend-176m.onrender.com/api/services/${id}`,
                 {
                     method: "DELETE"
                 }
