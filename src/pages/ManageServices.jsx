@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import "./ManageServices.css";
 
@@ -11,6 +10,8 @@ function ManageServices() {
     const [isEditing, setIsEditing] = useState(false);
 
     const [currentServiceId, setCurrentServiceId] = useState(null);
+
+    const token = localStorage.getItem("token");
 
     const [formData, setFormData] = useState({
         title: "",
@@ -90,7 +91,8 @@ function ManageServices() {
                     {
                         method: "PUT",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`
                         },
                         body: JSON.stringify(formData)
                     }
@@ -103,7 +105,8 @@ function ManageServices() {
                     {
                         method: "POST",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`
                         },
                         body: JSON.stringify(formData)
                     }
@@ -158,7 +161,10 @@ function ManageServices() {
             const response = await fetch(
                 `https://portfolio-backend-176m.onrender.com/api/services/${id}`,
                 {
-                    method: "DELETE"
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
                 }
             );
 
@@ -210,7 +216,7 @@ function ManageServices() {
 
                     <form onSubmit={handleSubmit}>
 
-		                        <input
+                        <input
                             type="text"
                             name="title"
                             placeholder="Service Title"

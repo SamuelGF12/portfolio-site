@@ -3,12 +3,11 @@ import "./ManageProjects.css";
 
 function ManageProjects() {
   const [projects, setProjects] = useState([]);
-
   const [showForm, setShowForm] = useState(false);
-
   const [isEditing, setIsEditing] = useState(false);
-
   const [currentProjectId, setCurrentProjectId] = useState(null);
+
+  const token = localStorage.getItem("token");
 
   const [formData, setFormData] = useState({
     title: "",
@@ -41,13 +40,14 @@ function ManageProjects() {
 
   const handleEdit = (project) => {
     setIsEditing(true);
-
     setCurrentProjectId(project.id);
 
     setFormData({
       title: project.title,
       description: project.description,
-      completion: project.completion ? project.completion.substring(0, 10) : "",
+      completion: project.completion
+        ? project.completion.substring(0, 10)
+        : "",
       image: project.image,
     });
 
@@ -63,9 +63,7 @@ function ManageProjects() {
     });
 
     setIsEditing(false);
-
     setCurrentProjectId(null);
-
     setShowForm(false);
   };
 
@@ -82,18 +80,23 @@ function ManageProjects() {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify(formData),
-          },
+          }
         );
       } else {
-        response = await fetch("https://portfolio-backend-176m.onrender.com/api/projects", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+        response = await fetch(
+          "https://portfolio-backend-176m.onrender.com/api/projects",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(formData),
+          }
+        );
       }
 
       const result = await response.json();
@@ -102,41 +105,46 @@ function ManageProjects() {
         alert(
           isEditing
             ? "Project updated successfully!"
-            : "Project added successfully!",
+            : "Project added successfully!"
         );
 
         resetForm();
-
         fetchProjects();
       } else {
         alert(
-          isEditing ? "Unable to update project." : "Unable to add project.",
+          isEditing
+            ? "Unable to update project."
+            : "Unable to add project."
         );
       }
     } catch (error) {
       console.error(error);
-
       alert("Server error.");
     }
   };
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete this project?",
+      "Are you sure you want to delete this project?"
     );
 
     if (!confirmDelete) return;
 
     try {
-      const response = await fetch(`https://portfolio-backend-176m.onrender.com/api/projects/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://portfolio-backend-176m.onrender.com/api/projects/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       const result = await response.json();
 
       if (result.success) {
         alert("Project deleted successfully!");
-
         fetchProjects();
       } else {
         alert("Unable to delete project.");
@@ -215,7 +223,9 @@ function ManageProjects() {
         </div>
       )}
 
-      <p className="project-count">Total Projects: {projects.length}</p>
+      <p className="project-count">
+        Total Projects: {projects.length}
+      </p>
 
       <table className="projects-table">
         <thead>
@@ -234,11 +244,8 @@ function ManageProjects() {
             projects.map((project) => (
               <tr key={project.id}>
                 <td>{project.title}</td>
-
                 <td>{project.description}</td>
-
                 <td>{new Date(project.completion).toLocaleDateString()}</td>
-
                 <td>{project.image}</td>
 
                 <td>

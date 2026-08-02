@@ -4,12 +4,11 @@ import "./ManageUsers.css";
 function ManageUsers() {
 
     const [users, setUsers] = useState([]);
-
     const [showForm, setShowForm] = useState(false);
-
     const [isEditing, setIsEditing] = useState(false);
-
     const [currentUserId, setCurrentUserId] = useState(null);
+
+    const token = localStorage.getItem("token");
 
     const [formData, setFormData] = useState({
         firstname: "",
@@ -49,7 +48,6 @@ function ManageUsers() {
     const handleEdit = (user) => {
 
         setIsEditing(true);
-
         setCurrentUserId(user.id);
 
         setFormData({
@@ -73,9 +71,7 @@ function ManageUsers() {
         });
 
         setCurrentUserId(null);
-
         setIsEditing(false);
-
         setShowForm(false);
 
     };
@@ -95,7 +91,8 @@ function ManageUsers() {
                     {
                         method: "PUT",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`
                         },
                         body: JSON.stringify(formData)
                     }
@@ -127,7 +124,6 @@ function ManageUsers() {
                 );
 
                 resetForm();
-
                 fetchUsers();
 
             } else {
@@ -143,7 +139,6 @@ function ManageUsers() {
         } catch (error) {
 
             console.error(error);
-
             alert("Server error.");
 
         }
@@ -163,7 +158,10 @@ function ManageUsers() {
             const response = await fetch(
                 `https://portfolio-backend-176m.onrender.com/api/users/${id}`,
                 {
-                    method: "DELETE"
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
                 }
             );
 
@@ -172,7 +170,6 @@ function ManageUsers() {
             if (result.success) {
 
                 alert("User deleted successfully!");
-
                 fetchUsers();
 
             } else {
@@ -214,6 +211,7 @@ function ManageUsers() {
                     </h2>
 
                     <form onSubmit={handleSubmit}>
+
                         <input
                             type="text"
                             name="firstname"
@@ -289,9 +287,7 @@ function ManageUsers() {
                         <tr key={user.id}>
 
                             <td>{user.firstname}</td>
-
                             <td>{user.lastname}</td>
-
                             <td>{user.email}</td>
 
                             <td>

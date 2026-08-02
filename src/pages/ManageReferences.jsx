@@ -11,6 +11,8 @@ function ManageReferences() {
 
     const [currentReferenceId, setCurrentReferenceId] = useState(null);
 
+    const token = localStorage.getItem("token");
+
     const [formData, setFormData] = useState({
         name: "",
         testimonial: "",
@@ -95,7 +97,8 @@ function ManageReferences() {
                     {
                         method: "PUT",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`
                         },
                         body: JSON.stringify(formData)
                     }
@@ -108,7 +111,8 @@ function ManageReferences() {
                     {
                         method: "POST",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`
                         },
                         body: JSON.stringify(formData)
                     }
@@ -163,7 +167,10 @@ function ManageReferences() {
             const response = await fetch(
                 `https://portfolio-backend-176m.onrender.com/api/references/${id}`,
                 {
-                    method: "DELETE"
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
                 }
             );
 
@@ -214,8 +221,8 @@ function ManageReferences() {
                     </h2>
 
                     <form onSubmit={handleSubmit}>
-			
-			                        <input
+
+                        <input
                             type="text"
                             name="name"
                             placeholder="Reference Name"
